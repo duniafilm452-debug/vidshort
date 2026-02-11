@@ -9,7 +9,7 @@ const SUPABASE_CONFIG = {
 };
 
 const SMARTLINK_URL = 'https://www.effectivegatecpm.com/p43fdinys?key=7af8f475f3eda53e4d37ccfeaad8be18';
-const COUNTDOWN_TIME = 20; // 15 Detik
+const COUNTDOWN_TIME = 20; // 20 Detik
 
 let supabaseClient = null;
 let destinationUrl = '';
