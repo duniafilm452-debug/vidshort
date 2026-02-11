@@ -1,24 +1,13 @@
 // ======================
-// FILE: script.js (FIXED COUNTDOWN)
+// FILE: script.js (FINAL - FIXED BASE URL & COUNTDOWN)
 // ======================
 
 const SUPABASE_URL = 'https://diwjkvrzcewnhoybruum.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpd2prdnJ6Y2V3bmhveWJydXVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3NDIxMjAsImV4cCI6MjA4NjMxODEyMH0.UbWDW4b0d28nHRg_15fKEHZS6Ly4lAG667xhtkYUftU';
 const SMARTLINK_URL = 'https://www.effectivegatecpm.com/p43fdinys?key=7af8f475f3eda53e4d37ccfeaad8be18';
 
-// Debug function
-function debugCountdown() {
-    console.log('=== DEBUG COUNTDOWN ===');
-    console.log('Countdown section:', document.getElementById('countdownSection'));
-    console.log('Countdown number:', document.getElementById('countdownNumber'));
-    console.log('Progress bar:', document.getElementById('progressBar'));
-    console.log('Interval:', appState.countdownInterval);
-    console.log('Is running:', appState.isCountdownRunning);
-    console.log('=======================');
-}
-
-// Panggil debug setelah DOM loaded
-setTimeout(debugCountdown, 1000);
+// FIXED: BASE URL untuk video link - selalu ke halaman utama
+const BASE_URL = window.location.origin + '/?v=';
 
 let supabase;
 let appState = {
@@ -27,11 +16,22 @@ let appState = {
     isCountdownRunning: false
 };
 
+// Debug function
+function debugInfo() {
+    console.log('=== DEBUG INFO ===');
+    console.log('URL:', window.location.href);
+    console.log('Video ID:', new URLSearchParams(window.location.search).get('v'));
+    console.log('Base URL:', BASE_URL);
+    console.log('Countdown section:', document.getElementById('countdownSection'));
+    console.log('===================');
+}
+
 // ======================
 // MAIN EXECUTION
 // ======================
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🎬 Video Access Page Loading...');
+    debugInfo();
     
     // 1. Cek Parameter URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 3. Mulai Countdown SEBELUM ambil data
-    console.log('🚀 Starting countdown...');
+    console.log('⏳ Starting countdown...');
     startCountdown();
     
     // 4. Ambil data video di background
@@ -80,10 +80,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                         .from('videos')
                         .update({ views: (data.views || 0) + 1 })
                         .eq('id', videoId);
+                    console.log('👁️ View count updated');
                 } catch (viewError) {
                     console.log('View count update skipped:', viewError);
                 }
             }
+        } else {
+            console.log('⚠️ Running in demo mode (no Supabase)');
+            // Demo data untuk testing
+            appState.videoData = {
+                id: videoId,
+                title: 'Video Demo',
+                description: 'Ini adalah video demo untuk testing',
+                created_at: new Date().toISOString(),
+                views: 0,
+                video_url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+            };
+            updateVideoUI(appState.videoData);
         }
     } catch (e) {
         console.error('❌ App Error:', e);
@@ -91,10 +104,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     setupEventListeners();
     setupScrollDetection();
+    
+    console.log('✅ Page initialization complete');
 });
 
 // ======================
-// FUNGSI COUNTDOWN (PERBAIKI)
+// FUNGSI COUNTDOWN (FIXED)
 // ======================
 function startCountdown() {
     console.log('⏳ Countdown starting...');
@@ -117,6 +132,8 @@ function startCountdown() {
     
     // Reset UI
     numberEl.textContent = countdown;
+    numberEl.style.color = '#10b981';
+    numberEl.style.animation = 'pulse 2s infinite';
     barEl.style.width = '0%';
     barEl.style.transition = 'width 1s linear';
     
@@ -137,7 +154,7 @@ function startCountdown() {
     // Mulai interval
     appState.countdownInterval = setInterval(() => {
         countdown--;
-        console.log('Countdown:', countdown);
+        console.log('⏱️ Countdown:', countdown);
         
         // Update UI
         numberEl.textContent = countdown;
@@ -147,7 +164,7 @@ function startCountdown() {
         // Efek visual saat hitungan rendah
         if (countdown <= 5) {
             numberEl.style.color = '#ef4444';
-            numberEl.style.animation = 'pulse 0.5s infinite';
+            numberEl.style.animation = 'pulseRed 0.5s infinite';
         }
         
         // Countdown selesai
@@ -182,7 +199,7 @@ function startCountdown() {
 // FUNGSI TAMPILKAN SECTION
 // ======================
 function showSection(id) {
-    console.log('Showing section:', id);
+    console.log('📄 Showing section:', id);
     
     // Semua section utama
     const sections = [
@@ -224,10 +241,10 @@ function showSection(id) {
 }
 
 // ======================
-// EVENT LISTENERS (PERBAIKI)
+// EVENT LISTENERS (FIXED)
 // ======================
 function setupEventListeners() {
-    console.log('Setting up event listeners...');
+    console.log('🔧 Setting up event listeners...');
     
     // Scroll Detection
     let scrollProcessed = false;
@@ -312,6 +329,8 @@ function setupEventListeners() {
     const video = document.getElementById('videoPlayer');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const backToVideoBtn = document.getElementById('backToVideoButton');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const replayBtn = document.getElementById('replayBtn');
     
     if (playPauseBtn && video) {
         playPauseBtn.addEventListener('click', () => {
@@ -332,13 +351,37 @@ function setupEventListeners() {
         });
     }
     
-    // Fullscreen button
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
     if (fullscreenBtn) {
         fullscreenBtn.addEventListener('click', () => {
             const playerWrapper = document.getElementById('playerWrapper');
             if (playerWrapper.requestFullscreen) {
                 playerWrapper.requestFullscreen();
+            } else if (playerWrapper.webkitRequestFullscreen) {
+                playerWrapper.webkitRequestFullscreen();
+            } else if (playerWrapper.msRequestFullscreen) {
+                playerWrapper.msRequestFullscreen();
+            }
+        });
+    }
+    
+    if (replayBtn && video) {
+        replayBtn.addEventListener('click', () => {
+            video.currentTime = 0;
+            video.play();
+        });
+    }
+    
+    // Video events
+    if (video) {
+        video.addEventListener('play', () => {
+            if (playPauseBtn) {
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Jeda';
+            }
+        });
+        
+        video.addEventListener('pause', () => {
+            if (playPauseBtn) {
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Putar';
             }
         });
     }
@@ -365,7 +408,7 @@ function startReturnTimer() {
 
     const interval = setInterval(() => {
         timer--;
-        console.log('Ad timer:', timer);
+        console.log('⏱️ Ad timer:', timer);
         
         // Update display
         timerEls.forEach(el => {
@@ -396,12 +439,16 @@ function playVideo() {
         showSection('videoPlayerSection');
         
         // Coba play video
-        video.play().then(() => {
-            console.log('✅ Video playing');
-        }).catch(e => {
-            console.log('⚠️ Autoplay prevented, user must click play');
-            showToast('Klik tombol play untuk menonton video');
-        });
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                console.log('✅ Video playing');
+            }).catch(e => {
+                console.log('⚠️ Autoplay prevented, user must click play');
+                showToast('Klik tombol play untuk menonton video');
+            });
+        }
     }
 }
 
@@ -409,7 +456,7 @@ function playVideo() {
 // UI UPDATE FUNCTIONS
 // ======================
 function updateVideoUI(data) {
-    console.log('Updating UI with video data:', data.title);
+    console.log('🎨 Updating UI with video data:', data.title);
     
     const titleEl = document.getElementById('videoTitle');
     const descEl = document.getElementById('videoDescription');
@@ -431,7 +478,7 @@ function updateVideoUI(data) {
 // SCROLL DETECTION
 // ======================
 function setupScrollDetection() {
-    console.log('Setting up scroll detection...');
+    console.log('🔍 Setting up scroll detection...');
     
     let isProcessing = false;
     
@@ -540,9 +587,14 @@ function showFatalError(title, message) {
 }
 
 function showToast(msg) {
-    console.log('Toast:', msg);
+    console.log('💬 Toast:', msg);
+    
+    // Hapus toast lama jika ada
+    const oldToast = document.querySelector('.toast-message');
+    if (oldToast) oldToast.remove();
     
     const toast = document.createElement('div');
+    toast.className = 'toast-message';
     toast.innerHTML = `<i class="fas fa-info-circle"></i> ${msg}`;
     toast.style.cssText = `
         position: fixed;
@@ -561,19 +613,23 @@ function showToast(msg) {
         gap: 10px;
         animation: fadeInOut 4s ease;
         border: 1px solid rgba(255,255,255,0.2);
+        white-space: nowrap;
     `;
     
-    // Add animation style
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-            10% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            90% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-        }
-    `;
-    document.head.appendChild(style);
+    // Add animation style jika belum ada
+    if (!document.querySelector('#toast-animation')) {
+        const style = document.createElement('style');
+        style.id = 'toast-animation';
+        style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
     
     document.body.appendChild(toast);
     
@@ -583,5 +639,28 @@ function showToast(msg) {
         }
     }, 4000);
 }
+
+// ======================
+// Tambahkan animation untuk countdown
+// ======================
+const animationStyle = document.createElement('style');
+animationStyle.textContent = `
+    @keyframes pulseRed {
+        0%, 100% { 
+            transform: scale(1); 
+            color: #ef4444;
+        }
+        50% { 
+            transform: scale(1.1); 
+            color: #f87171;
+        }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+`;
+document.head.appendChild(animationStyle);
 
 console.log('✅ script.js loaded successfully');

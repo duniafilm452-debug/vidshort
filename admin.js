@@ -1,27 +1,25 @@
 // ======================
-// FILE: admin.js (FIXED - NO DUPLICATE DECLARATION)
+// FILE: admin.js (FINAL - FIXED BASE URL ISSUE)
 // ======================
 
 // KONFIGURASI SUPABASE
-const SUPABASE_URL = "https://diwjkvrzcewnhoybruum.supabase.co"; 
+const SUPABASE_URL = "https://diwjkvrzcewnhoybruum.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpd2prdnJ6Y2V3bmhveWJydXVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3NDIxMjAsImV4cCI6MjA4NjMxODEyMH0.UbWDW4b0d28nHRg_15fKEHZS6Ly4lAG667xhtkYUftU";
 
-// Base URL
-const BASE_URL = window.location.origin + window.location.pathname.replace('admin.html', '') + '?v=';
-
-// HAPUS INI: let supabase; // JANGAN deklarasi ulang
-// Biarkan supabase dideklarasikan hanya di script.js
+// FIXED: BASE URL yang benar - selalu mengarah ke halaman utama (index.html)
+const BASE_URL = window.location.origin + '/?v=';
 
 // ======================
 // INISIALISASI
 // ======================
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Admin Panel Initializing...');
+    console.log('🎬 Admin Panel Initializing...');
     
     try {
-        // Inisialisasi Supabase Client - GUNAKAN window.supabaseClient
+        // Inisialisasi Supabase Client
         window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         console.log('✅ Supabase client initialized');
+        console.log('📌 Base URL:', BASE_URL);
         
         // Test koneksi ke database
         const { data, error } = await window.supabaseClient
@@ -62,10 +60,10 @@ function getSupabase() {
 }
 
 // ======================
-// UPLOAD HANDLER (PERBAIKI)
+// UPLOAD HANDLER
 // ======================
 async function handleUpload() {
-    console.log('Upload button clicked...');
+    console.log('📤 Upload button clicked...');
     
     const title = document.getElementById('videoTitle').value.trim();
     const url = document.getElementById('videoUrl').value.trim();
@@ -97,6 +95,7 @@ async function handleUpload() {
         // Generate ID unik
         const videoId = generateRandomId();
         console.log('Generated video ID:', videoId);
+        console.log('Generated link:', BASE_URL + videoId);
         
         // Data untuk disimpan
         const videoData = {
@@ -108,7 +107,7 @@ async function handleUpload() {
             views: 0
         };
         
-        console.log('Saving video data:', videoData);
+        console.log('💾 Saving video data:', videoData);
 
         // DAPATKAN CLIENT DARI FUNGSI HELPER
         const supabase = getSupabase();
@@ -133,7 +132,9 @@ async function handleUpload() {
         
         if (generatedLink) {
             generatedLink.value = BASE_URL + videoId;
+            console.log('🔗 Link generated:', BASE_URL + videoId);
         }
+        
         if (successModal) {
             successModal.classList.add('active');
         }
@@ -175,13 +176,13 @@ async function handleUpload() {
 }
 
 // ======================
-// DATA LOADING FUNCTIONS (PERBAIKI)
+// DATA LOADING FUNCTIONS
 // ======================
 async function loadVideos() {
     const videosGrid = document.getElementById('videosGrid');
     if (!videosGrid) return;
     
-    console.log('Loading videos...');
+    console.log('📥 Loading videos...');
     
     videosGrid.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>Memuat daftar video...</p></div>';
 
@@ -250,7 +251,7 @@ async function loadVideos() {
 }
 
 async function loadStats() {
-    console.log('Loading statistics...');
+    console.log('📊 Loading statistics...');
     
     try {
         // DAPATKAN CLIENT DARI FUNGSI HELPER
@@ -342,7 +343,7 @@ async function loadRecentActivity() {
 // UTILITY FUNCTIONS
 // ======================
 function showPage(pageName) {
-    console.log('Showing page:', pageName);
+    console.log('📄 Showing page:', pageName);
     
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
@@ -445,6 +446,7 @@ window.copyVideoLink = async function(videoId) {
     try {
         await navigator.clipboard.writeText(link);
         showMessage('success', 'Link berhasil disalin!', link);
+        console.log('📋 Copied link:', link);
     } catch (err) {
         console.error('Copy failed:', err);
         showMessage('error', 'Gagal menyalin link', err.message);
@@ -542,10 +544,10 @@ async function searchVideos(searchTerm) {
 }
 
 // ======================
-// SETUP EVENT LISTENERS (PISAHKAN)
+// SETUP EVENT LISTENERS
 // ======================
 function setupEventListeners() {
-    console.log('Setting up event listeners...');
+    console.log('🔧 Setting up event listeners...');
     
     // Navigation
     const navLinks = document.querySelectorAll('.nav-link');
@@ -583,6 +585,8 @@ function setupEventListeners() {
             if (previewContainer) {
                 previewContainer.style.display = 'block';
             }
+            
+            console.log('👁️ Preview link generated:', BASE_URL + previewId);
         });
     }
 
