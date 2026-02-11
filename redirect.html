@@ -62,7 +62,7 @@
             background: #0f172a;
             border-radius: 16px;
             padding: 30px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             border: 1px solid #334155;
         }
         
@@ -150,25 +150,6 @@
             border: 1px solid #334155;
         }
         
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 30px;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            margin-top: 16px;
-        }
-        
-        .badge i {
-            margin-right: 6px;
-            color: #3b82f6;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -223,8 +204,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            margin: 20px 0 10px 0;
+            width: 100%;
+        }
+        
+        .ads-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            margin: 15px 0;
         }
         
         .ads-banner {
@@ -257,7 +245,7 @@
             display: flex;
             justify-content: center;
             background: transparent;
-            margin: 5px 0;
+            margin: 20px 0 5px 0;
         }
         
         .ads-social iframe,
@@ -266,6 +254,75 @@
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
+        }
+        
+        /* ===== TEKS PROMOSI PLATFORM ===== */
+        .promo-section {
+            margin: 25px 0 15px 0;
+            padding: 20px 15px;
+            background: linear-gradient(145deg, #0f172a, #1a2536);
+            border-radius: 16px;
+            border-left: 4px solid #3b82f6;
+            text-align: left;
+        }
+        
+        .promo-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .promo-title i {
+            color: #3b82f6;
+        }
+        
+        .promo-text {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .promo-highlight {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .promo-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .feature-tag {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .feature-tag i {
+            color: #3b82f6;
+        }
+        
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #334155, transparent);
+            margin: 20px 0;
+        }
+        
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
@@ -278,8 +335,48 @@
             </div>
             <h1>Memuat</h1>
             <div class="message">Menyiapkan tautan Anda...</div>
-            <!-- BANNER IKLAN 1 - LOADING -->
-            <div class="ads-wrapper">
+            
+            <!-- PROMO SECTION 1 - LOADING -->
+            <div class="promo-section">
+                <div class="promo-title">
+                    <i class="fas fa-bolt"></i> LinkShort.ID
+                </div>
+                <div class="promo-text">
+                    🚀 <span class="promo-highlight">Platform shortener tercepat</span> dengan keamanan SSL dan anti-malware.
+                </div>
+                <div class="promo-features">
+                    <span class="feature-tag"><i class="fas fa-chart-line"></i> 1M+ links</span>
+                    <span class="feature-tag"><i class="fas fa-users"></i> 500K users</span>
+                    <span class="feature-tag"><i class="fas fa-clock"></i> Uptime 99.9%</span>
+                </div>
+            </div>
+            
+            <!-- IKLAN BANNER 1,2,3 - ATAS COUNTDOWN (sementara di loading) -->
+            <div class="ads-row">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
                 <div class="ads-banner">
                     <script>
                         atOptions = {
@@ -298,21 +395,37 @@
         <!-- COUNTDOWN SCREEN -->
         <div id="countdownScreen" class="hidden">
             <div class="icon">
-                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-hourglass-half"></i>
             </div>
             <h1>Verifikasi Keamanan</h1>
-            <div class="message">Tunggu 15 detik untuk melanjutkan</div>
+            <div class="message">Harap tunggu 15 detik untuk melanjutkan</div>
             
-            <div class="countdown-box">
-                <div class="number" id="countdownNumber">15</div>
-                <div class="label">DETIK</div>
-                <div class="progress">
-                    <div class="progress-bar" id="progressBar"></div>
+            <!-- ===== 3 IKLAN DI ATAS HITUNGAN MUNDUR ===== -->
+            <div class="ads-row">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
                 </div>
-            </div>
-            
-            <!-- BANNER IKLAN 2 - COUNTDOWN -->
-            <div class="ads-wrapper">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
                 <div class="ads-banner">
                     <script>
                         atOptions = {
@@ -326,23 +439,128 @@
                     <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
                 </div>
             </div>
+            
+            <!-- COUNTDOWN BOX -->
+            <div class="countdown-box">
+                <div class="number" id="countdownNumber">15</div>
+                <div class="label">DETIK</div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            
+            <!-- ===== 5 IKLAN DI BAWAH HITUNGAN MUNDUR ===== -->
+            <div class="ads-row">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+            </div>
+            
+            <!-- PROMO SECTION 2 - COUNTDOWN -->
+            <div class="promo-section">
+                <div class="promo-title">
+                    <i class="fas fa-shield-alt"></i> Kenapa LinkShort.ID?
+                </div>
+                <div class="promo-text">
+                    ✅ <span class="promo-highlight">Anti-banned & anti-flag</span> — link Anda aman dari kebijakan ketat.
+                </div>
+                <div class="promo-text">
+                    ✅ <span class="promo-highlight">Monetisasi maksimal</span> — CPM tinggi, payout cepat.
+                </div>
+                <div class="promo-text">
+                    ✅ <span class="promo-highlight">Analytics real-time</span> — Pantau klik dan geolokasi.
+                </div>
+            </div>
+            
+            <div class="divider"></div>
         </div>
         
-        <!-- SMARTLINK BUTTON -->
+        <!-- SMARTLINK SCREEN -->
         <div id="smartlinkScreen" class="hidden">
             <div class="icon">
                 <i class="fas fa-hand-pointer"></i>
             </div>
             <h1>Selanjutnya</h1>
-            <div class="message">Klik tombol di bawah untuk melanjutkan ke sponsor</div>
+            <div class="message">Klik tombol di bawah untuk melanjutkan</div>
             
             <button class="btn btn-primary" id="smartlinkBtn">
                 <i class="fas fa-external-link-alt"></i>
                 Selanjutnya
             </button>
             
-            <!-- BANNER IKLAN 3 - SMARTLINK -->
-            <div class="ads-wrapper">
+            <!-- PROMO SECTION 3 - SMARTLINK -->
+            <div class="promo-section">
+                <div class="promo-title">
+                    <i class="fas fa-gem"></i> Fitur Unggulan
+                </div>
+                <div class="promo-features">
+                    <span class="feature-tag"><i class="fas fa-qrcode"></i> QR Generator</span>
+                    <span class="feature-tag"><i class="fas fa-link"></i> Custom alias</span>
+                    <span class="feature-tag"><i class="fas fa-clock"></i> Expiry date</span>
+                    <span class="feature-tag"><i class="fas fa-password"></i> Password protect</span>
+                    <span class="feature-tag"><i class="fas fa-device"></i> Responsive</span>
+                </div>
+            </div>
+            
+            <!-- IKLAN BANNER DI SMARTLINK -->
+            <div class="ads-row">
                 <div class="ads-banner">
                     <script>
                         atOptions = {
@@ -378,8 +596,21 @@
             
             <div class="url-destination" id="destinationUrlDisplay"></div>
             
-            <!-- BANNER IKLAN 4 - REDIRECT -->
-            <div class="ads-wrapper">
+            <!-- PROMO SECTION 4 - FINAL -->
+            <div class="promo-section">
+                <div class="promo-title">
+                    <i class="fas fa-rocket"></i> Dukung Kami
+                </div>
+                <div class="promo-text">
+                    <span class="promo-highlight">LinkShort.ID</span> — platform shortening gratis #1 di Indonesia.
+                </div>
+                <div class="promo-text">
+                    🌟 Bagikan linkmu dan dapatkan bonus referral 20%!
+                </div>
+            </div>
+            
+            <!-- IKLAN BANNER DI FINAL -->
+            <div class="ads-row">
                 <div class="ads-banner">
                     <script>
                         atOptions = {
@@ -398,6 +629,11 @@
         <!-- SOCIAL BAR IKLAN - Tampil di semua screen -->
         <div class="ads-social" id="socialBar">
             <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
+        </div>
+        
+        <!-- FOOTER PROMO -->
+        <div style="margin-top: 25px; font-size: 0.75rem; color: #64748b; border-top: 1px solid #334155; padding-top: 15px;">
+            <i class="fas fa-crown"></i> LinkShort.ID © 2024 - Shortener Cepat, Aman & Menguntungkan
         </div>
     </div>
     
