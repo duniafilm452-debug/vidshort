@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect - Link Shortener</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== REDIRECT STYLES - FIXED ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            max-width: 500px;
+            width: 100%;
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 40px 30px;
+            border: 1px solid #334155;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .icon {
+            font-size: 4rem;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .message {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .countdown-box {
+            background: #0f172a;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        
+        .number {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #10b981;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .label {
+            color: #94a3b8;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .progress {
+            width: 100%;
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            margin-top: 25px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #10b981, #3b82f6);
+            width: 0%;
+            transition: width 1s linear;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #334155;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .url-destination {
+            margin-top: 20px;
+            padding: 16px;
+            background: #0f172a;
+            border-radius: 12px;
+            color: #10b981;
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            border: 1px solid #334155;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 30px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+        
+        .badge i {
+            margin-right: 6px;
+            color: #3b82f6;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .number {
+            animation: pulse 2s infinite;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .number {
+                font-size: 4rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- LOADING SCREEN -->
+        <div id="loadingScreen">
+            <div class="icon">
+                <i class="fas fa-spinner fa-pulse"></i>
+            </div>
+            <h1>Memuat</h1>
+            <div class="message">Menyiapkan tautan Anda...</div>
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i> SSL Secure
+            </div>
+        </div>
+        
+        <!-- COUNTDOWN SCREEN -->
+        <div id="countdownScreen" class="hidden">
+            <div class="icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>Verifikasi Keamanan</h1>
+            <div class="message">Tunggu 15 detik untuk melanjutkan</div>
+            
+            <div class="countdown-box">
+                <div class="number" id="countdownNumber">15</div>
+                <div class="label">DETIK</div>
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            
+            <div class="badge">
+                <i class="fas fa-lock"></i> Koneksi Aman
+            </div>
+        </div>
+        
+        <!-- SMARTLINK BUTTON -->
+        <div id="smartlinkScreen" class="hidden">
+            <div class="icon">
+                <i class="fas fa-hand-pointer"></i>
+            </div>
+            <h1>Selanjutnya</h1>
+            <div class="message">Klik tombol di bawah untuk melanjutkan ke sponsor</div>
+            
+            <button class="btn btn-primary" id="smartlinkBtn">
+                <i class="fas fa-external-link-alt"></i>
+                Selanjutnya
+            </button>
+            
+            <div class="badge">
+                <i class="fas fa-info-circle"></i> Dukung creator dengan klik sponsor
+            </div>
+        </div>
+        
+        <!-- FINAL REDIRECT -->
+        <div id="redirectScreen" class="hidden">
+            <div class="icon">
+                <i class="fas fa-check-circle" style="color: #10b981;"></i>
+            </div>
+            <h1>Akses Dibuka</h1>
+            <div class="message">Klik tombol untuk membuka URL tujuan</div>
+            
+            <button class="btn btn-primary" id="redirectBtn">
+                <i class="fas fa-external-link-alt"></i>
+                Buka Tautan
+            </button>
+            
+            <button class="btn btn-secondary" id="copyDestinationBtn">
+                <i class="fas fa-copy"></i>
+                Salin Tautan
+            </button>
+            
+            <div class="url-destination" id="destinationUrlDisplay"></div>
+        </div>
+    </div>
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Redirect JS -->
+    <script src="redirect.js"></script>
+</body>
+</html>
