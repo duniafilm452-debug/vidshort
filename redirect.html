@@ -73,6 +73,7 @@
             line-height: 1;
             margin-bottom: 8px;
             text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
         }
         
         .label {
@@ -155,10 +156,6 @@
             50% { transform: scale(1.05); }
         }
         
-        .number {
-            animation: pulse 2s infinite;
-        }
-        
         .toast {
             position: fixed;
             bottom: 30px;
@@ -199,7 +196,7 @@
             }
         }
 
-        /* ===== IKLAN STYLES - POLOS TANPA KOTAK ===== */
+        /* ===== IKLAN STYLES - OPTIMIZED ===== */
         .ads-wrapper {
             display: flex;
             flex-direction: column;
@@ -210,7 +207,7 @@
         .ads-row {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             width: 100%;
             margin: 15px 0;
         }
@@ -229,7 +226,42 @@
             background: transparent !important;
         }
         
-        /* Hilangkan semua border, shadow, background dari iklan */
+        /* Video Slider Container */
+        .video-slider-container {
+            width: 100%;
+            margin: 20px 0;
+            padding: 10px 0;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .video-slider-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding: 0 5px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .video-slider-title i {
+            color: #3b82f6;
+        }
+        
+        /* Banner 300x250 Container */
+        .banner-300-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 15px 0;
+            min-height: 250px;
+        }
+        
+        /* Hilangkan border, shadow, background dari iklan */
         iframe[src*="highperformanceformat"],
         iframe[src*="effectivegatecpm"] {
             border: 0 !important;
@@ -336,6 +368,41 @@
             <h1>Memuat</h1>
             <div class="message">Menyiapkan tautan Anda...</div>
             
+            <!-- VIDEO SLIDER - IKLAN MULTITAG (TIDAK MENGGANGGU) -->
+            <div class="video-slider-container">
+                <div class="video-slider-title">
+                    <i class="fas fa-play-circle"></i> Konten Rekomendasi
+                </div>
+                <script>
+                (function(wqsfi){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = wqsfi || {};
+                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
+            </div>
+            
+            <!-- BANNER 300x250 (HANYA 1) -->
+            <div class="banner-300-container">
+                <script>
+                (function(teix){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = teix || {};
+                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
+            </div>
+            
             <!-- PROMO SECTION 1 - LOADING -->
             <div class="promo-section">
                 <div class="promo-title">
@@ -350,46 +417,6 @@
                     <span class="feature-tag"><i class="fas fa-clock"></i> Uptime 99.9%</span>
                 </div>
             </div>
-            
-            <!-- IKLAN BANNER 1,2,3 - ATAS COUNTDOWN (sementara di loading) -->
-            <div class="ads-row">
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-            </div>
         </div>
         
         <!-- COUNTDOWN SCREEN -->
@@ -400,44 +427,23 @@
             <h1>Verifikasi Keamanan</h1>
             <div class="message">Harap tunggu 15 detik untuk melanjutkan</div>
             
-            <!-- ===== 3 IKLAN DI ATAS HITUNGAN MUNDUR ===== -->
-            <div class="ads-row">
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+            <!-- VIDEO SLIDER - JUGA DI COUNTDOWN -->
+            <div class="video-slider-container">
+                <div class="video-slider-title">
+                    <i class="fas fa-play-circle"></i> Video Populer
                 </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
+                <script>
+                (function(wqsfi){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = wqsfi || {};
+                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
             </div>
             
             <!-- COUNTDOWN BOX -->
@@ -449,68 +455,20 @@
                 </div>
             </div>
             
-            <!-- ===== 5 IKLAN DI BAWAH HITUNGAN MUNDUR ===== -->
-            <div class="ads-row">
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
+            <!-- BANNER 300x250 DI BAWAH COUNTDOWN -->
+            <div class="banner-300-container">
+                <script>
+                (function(teix){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = teix || {};
+                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
             </div>
             
             <!-- PROMO SECTION 2 - COUNTDOWN -->
@@ -525,7 +483,7 @@
                     ✅ <span class="promo-highlight">Mudah digunakan</span> — Tidak banyak iklan.
                 </div>
                 <div class="promo-text">
-                    ✅ <span class="promo-highlight">Tidak banyak iklan</span> — Cepat menemukan tautan tujuan.
+                    ✅ <span class="promo-highlight">Cepat</span> — Langsung menuju tautan tujuan.
                 </div>
             </div>
             
@@ -545,6 +503,25 @@
                 Selanjutnya
             </button>
             
+            <!-- VIDEO SLIDER DI SMARTLINK -->
+            <div class="video-slider-container">
+                <div class="video-slider-title">
+                    <i class="fas fa-play-circle"></i> Nonton Juga
+                </div>
+                <script>
+                (function(wqsfi){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = wqsfi || {};
+                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
+            </div>
+            
             <!-- PROMO SECTION 3 - SMARTLINK -->
             <div class="promo-section">
                 <div class="promo-title">
@@ -559,20 +536,20 @@
                 </div>
             </div>
             
-            <!-- IKLAN BANNER DI SMARTLINK -->
-            <div class="ads-row">
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
+            <!-- BANNER 300x250 DI SMARTLINK -->
+            <div class="banner-300-container">
+                <script>
+                (function(teix){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = teix || {};
+                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
             </div>
         </div>
         
@@ -596,6 +573,25 @@
             
             <div class="url-destination" id="destinationUrlDisplay"></div>
             
+            <!-- VIDEO SLIDER DI FINAL -->
+            <div class="video-slider-container">
+                <div class="video-slider-title">
+                    <i class="fas fa-play-circle"></i> Rekomendasi Untukmu
+                </div>
+                <script>
+                (function(wqsfi){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = wqsfi || {};
+                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
+            </div>
+            
             <!-- PROMO SECTION 4 - FINAL -->
             <div class="promo-section">
                 <div class="promo-title">
@@ -609,24 +605,24 @@
                 </div>
             </div>
             
-            <!-- IKLAN BANNER DI FINAL -->
-            <div class="ads-row">
-                <div class="ads-banner">
-                    <script>
-                        atOptions = {
-                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
-                </div>
+            <!-- BANNER 300x250 DI FINAL -->
+            <div class="banner-300-container">
+                <script>
+                (function(teix){
+                    var d = document,
+                        s = d.createElement('script'),
+                        l = d.scripts[d.scripts.length - 1];
+                    s.settings = teix || {};
+                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
+                    s.async = true;
+                    s.referrerPolicy = 'no-referrer-when-downgrade';
+                    l.parentNode.insertBefore(s, l);
+                })({})
+                </script>
             </div>
         </div>
         
-        <!-- SOCIAL BAR IKLAN - Tampil di semua screen -->
+        <!-- SOCIAL BAR IKLAN (HANYA 1, DI BAWAH) -->
         <div class="ads-social" id="socialBar">
             <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
         </div>
