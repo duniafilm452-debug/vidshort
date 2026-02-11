@@ -1,13 +1,13 @@
 // ======================
-// FILE: admin.js (FINAL - FIXED BASE URL ISSUE)
+// FILE: admin.js (FINAL VERSION)
 // ======================
 
 // KONFIGURASI SUPABASE
 const SUPABASE_URL = "https://diwjkvrzcewnhoybruum.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpd2prdnJ6Y2V3bmhveWJydXVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3NDIxMjAsImV4cCI6MjA4NjMxODEyMH0.UbWDW4b0d28nHRg_15fKEHZS6Ly4lAG667xhtkYUftU";
 
-// FIXED: BASE URL yang benar - selalu mengarah ke halaman utama (index.html)
-const BASE_URL = window.location.origin + '/?v=';
+// BASE URL untuk video.html (halaman akses video)
+const BASE_URL = window.location.origin + '/video.html?v=';
 
 // ======================
 // INISIALISASI
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Inisialisasi Supabase Client
         window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         console.log('✅ Supabase client initialized');
-        console.log('📌 Base URL:', BASE_URL);
+        console.log('📌 Base URL untuk video:', BASE_URL);
         
         // Test koneksi ke database
         const { data, error } = await window.supabaseClient

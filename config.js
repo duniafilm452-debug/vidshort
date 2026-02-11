@@ -1,26 +1,25 @@
 // ======================
 // KONFIGURASI SISTEM
 // ======================
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.38.0";
 
 // SUPABASE CONFIGURATION
 const SUPABASE_CONFIG = {
-    url: "https://diwjkvrzcewnhoybruum.supabase.co", // GANTI dengan URL Supabase Anda
-    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpd2prdnJ6Y2V3bmhveWJydXVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3NDIxMjAsImV4cCI6MjA4NjMxODEyMH0.UbWDW4b0d28nHRg_15fKEHZS6Ly4lAG667xhtkYUftU" // GANTI dengan anon key Anda
+    url: "https://diwjkvrzcewnhoybruum.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpd2prdnJ6Y2V3bmhveWJydXVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA3NDIxMjAsImV4cCI6MjA4NjMxODEyMH0.UbWDW4b0d28nHRg_15fKEHZS6Ly4lAG667xhtkYUftU"
 };
 
 // SMARTLINK CONFIGURATION
 const SMARTLINK_CONFIG = {
-    url: 'https://example.com/sponsor', // GANTI dengan URL smartlink Anda
-    timer: 10, // Waktu timer di halaman sponsor (detik)
-    enabled: true // Aktifkan smartlink
+    url: 'https://www.effectivegatecpm.com/p43fdinys?key=7af8f475f3eda53e4d37ccfeaad8be18',
+    timer: 10,
+    enabled: true
 };
 
 // APP CONFIGURATION
 const APP_CONFIG = {
-    countdownTime: 15, // Waktu countdown awal (detik)
-    baseUrl: window.location.origin + '/', // Base URL untuk link
-    debugMode: false // Mode debug
+    countdownTime: 15,
+    baseUrl: window.location.origin + '/',
+    debugMode: false
 };
 
 // VALIDATION CONFIGURATION
@@ -69,12 +68,14 @@ function generateVideoId() {
     return `${timestamp}_${random}`.substring(0, 20);
 }
 
-// Helper function untuk mendapatkan base URL
-function getBaseUrl() {
-    if (window.location.href.includes('admin.html')) {
-        return window.location.origin.replace('/admin.html', '') + '/?v=';
-    }
-    return window.location.origin + '/?v=';
+// Helper function untuk mendapatkan base URL untuk video
+function getVideoBaseUrl() {
+    return window.location.origin + '/video.html?v=';
+}
+
+// Helper function untuk mendapatkan base URL untuk admin
+function getAdminBaseUrl() {
+    return window.location.origin + '/';
 }
 
 // ======================
@@ -85,7 +86,8 @@ if (APP_CONFIG.debugMode) {
     console.log('=== SYSTEM CONFIGURATION ===');
     console.log('Supabase URL:', SUPABASE_CONFIG.url ? '✓ Configured' : '✗ Not configured');
     console.log('Smartlink URL:', SMARTLINK_CONFIG.url);
-    console.log('Base URL:', getBaseUrl());
+    console.log('Video Base URL:', getVideoBaseUrl());
+    console.log('Admin Base URL:', getAdminBaseUrl());
     console.log('Debug Mode:', APP_CONFIG.debugMode);
     console.log('==========================');
 }
@@ -99,6 +101,7 @@ if (typeof module !== 'undefined' && module.exports) {
         VALIDATION_CONFIG,
         isValidVideoUrl,
         generateVideoId,
-        getBaseUrl
+        getVideoBaseUrl,
+        getAdminBaseUrl
     };
 }

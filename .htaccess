@@ -1,0 +1,27 @@
+# ======================
+# ATURAN REDIRECT
+# ======================
+
+RewriteEngine On
+
+# Redirect root ke admin panel (index.html)
+DirectoryIndex index.html
+
+# Redirect akses langsung ke video.html tanpa parameter -> ke admin
+RewriteCond %{QUERY_STRING} !^v=
+RewriteRule ^video\.html$ / [L,R=301]
+
+# Custom error page
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html
+
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "DENY"
+Header set X-XSS-Protection "1; mode=block"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Cache static assets
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
