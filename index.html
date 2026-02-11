@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akses Video - Link Khusus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Countdown Section -->
+        <div class="countdown-section" id="countdownSection">
+            <div class="countdown-header">
+                <div class="icon-wrapper">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h1>Mohon tunggu kami sedang menyiapkan URL Anda</h1>
+                <p class="subtitle">Video akan tersedia dalam hitungan detik...</p>
+            </div>
+            
+            <div class="countdown-display">
+                <div class="countdown-number" id="countdownNumber">15</div>
+                <div class="countdown-label">detik</div>
+            </div>
+            
+            <div class="countdown-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Scroll Instruction Section -->
+        <div class="instruction-section" id="instructionSection">
+            <div class="instruction-content">
+                <div class="arrow-animation">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <h2><i class="fas fa-hand-point-down"></i> Silahkan geser ke bawah</h2>
+                <p>Geser halaman ke bawah untuk melanjutkan ke tahap berikutnya</p>
+            </div>
+        </div>
+
+        <!-- Next Button Section -->
+        <div class="next-section" id="nextSection">
+            <div class="next-content">
+                <div class="step-indicator">
+                    <div class="step active">1</div>
+                    <div class="step-line"></div>
+                    <div class="step">2</div>
+                    <div class="step-line"></div>
+                    <div class="step">3</div>
+                </div>
+                
+                <div class="step-content">
+                    <h3><i class="fas fa-forward-step"></i> Langkah 1: Iklan Sponsor</h3>
+                    <p>Klik tombol di bawah untuk mengunjungi halaman sponsor kami. Anda akan otomatis kembali setelah 10 detik.</p>
+                    
+                    <div class="ad-info">
+                        <div class="ad-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="ad-details">
+                            <h4>Dukung Sponsor Kami</h4>
+                            <p>Kunjungi sponsor untuk mendukung layanan ini</p>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-next" id="nextButton">
+                        <i class="fas fa-external-link-alt"></i>
+                        SELANJUTNYA - Kunjungi Sponsor
+                    </button>
+                    
+                    <div class="timer-info" id="timerInfo">
+                        <i class="fas fa-hourglass-half"></i>
+                        Anda akan otomatis kembali dalam: <span id="returnTimer">10</span> detik
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Page (Smartlink) -->
+        <div class="ad-page" id="adPage">
+            <div class="ad-header">
+                <button class="back-button" id="backButton">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <h3><i class="fas fa-ad"></i> Halaman Sponsor</h3>
+            </div>
+            
+            <div class="ad-container">
+                <div class="ad-content">
+                    <div class="ad-banner">
+                        <i class="fas fa-star ad-icon-large"></i>
+                        <h3>Terima kasih telah mendukung sponsor kami!</h3>
+                        <p>Halaman ini akan otomatis kembali dalam <span id="adTimer">10</span> detik</p>
+                        
+                        <div class="sponsor-message">
+                            <p><i class="fas fa-heart"></i> Dukungan Anda membantu kami menyediakan layanan ini secara gratis</p>
+                        </div>
+                        
+                        <!-- Smartlink Button -->
+                        <div class="smartlink-placeholder">
+                            <div class="placeholder-content">
+                                <i class="fas fa-link"></i>
+                                <h4>Sponsor Kami</h4>
+                                <p>Klik tombol di bawah untuk mengunjungi sponsor</p>
+                                <button class="visit-sponsor" id="visitSponsor">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Kunjungi Situs Sponsor
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ad-footer">
+                    <p><i class="fas fa-info-circle"></i> Anda akan otomatis kembali ke video setelah waktu habis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Access Section -->
+        <div class="video-section" id="videoSection">
+            <div class="video-content">
+                <div class="step-indicator">
+                    <div class="step active">1</div>
+                    <div class="step-line"></div>
+                    <div class="step active">2</div>
+                    <div class="step-line"></div>
+                    <div class="step active">3</div>
+                </div>
+                
+                <div class="success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2><i class="fas fa-video"></i> Video Siap Ditonton!</h2>
+                    <p>Terima kasih telah mendukung sponsor kami. Sekarang Anda dapat mengakses video.</p>
+                </div>
+                
+                <div class="video-info-card">
+                    <div class="video-thumbnail">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="video-details">
+                        <h4 id="videoTitle">Loading video title...</h4>
+                        <p id="videoDescription">Loading description...</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-clock"></i> Akses khusus via link</span>
+                            <span><i class="fas fa-calendar"></i> <span id="videoDate">Hari ini</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-watch" id="watchButton">
+                    <i class="fas fa-play-circle"></i>
+                    TONTON VIDEO SEKARANG
+                </button>
+                
+                <div class="access-note">
+                    <p><i class="fas fa-shield-alt"></i> <strong>Keamanan:</strong> Video ini hanya dapat diakses melalui link ini</p>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Peringatan:</strong> Jangan bagikan link ini kepada siapapun</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Player -->
+        <div class="video-player-section" id="videoPlayerSection">
+            <div class="player-header">
+                <button class="back-to-video" id="backToVideoButton">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <h3><i class="fas fa-play"></i> Memutar Video</h3>
+            </div>
+            
+            <div class="video-player-container">
+                <div class="player-wrapper" id="playerWrapper">
+                    <video id="videoPlayer" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="player-controls">
+                    <button class="control-btn" id="playPauseBtn">
+                        <i class="fas fa-pause"></i> Jeda
+                    </button>
+                    <button class="control-btn" id="fullscreenBtn">
+                        <i class="fas fa-expand"></i> Layar Penuh
+                    </button>
+                    <button class="control-btn" id="replayBtn">
+                        <i class="fas fa-redo"></i> Ulangi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
