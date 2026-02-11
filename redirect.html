@@ -217,6 +217,56 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* ===== IKLAN STYLES - POLOS TANPA KOTAK ===== */
+        .ads-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0 10px 0;
+        }
+        
+        .ads-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .ads-banner iframe {
+            max-width: 100%;
+            border: none !important;
+            background: transparent !important;
+        }
+        
+        /* Hilangkan semua border, shadow, background dari iklan */
+        iframe[src*="highperformanceformat"],
+        iframe[src*="effectivegatecpm"] {
+            border: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Social bar tanpa background */
+        .ads-social {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            margin: 5px 0;
+        }
+        
+        .ads-social iframe,
+        .ads-social ins,
+        .ads-social script + div {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 <body>
@@ -228,8 +278,20 @@
             </div>
             <h1>Memuat</h1>
             <div class="message">Menyiapkan tautan Anda...</div>
-            <div class="badge">
-                <i class="fas fa-shield-alt"></i> SSL Secure
+            <!-- BANNER IKLAN 1 - LOADING -->
+            <div class="ads-wrapper">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
             </div>
         </div>
         
@@ -249,8 +311,20 @@
                 </div>
             </div>
             
-            <div class="badge">
-                <i class="fas fa-lock"></i> Koneksi Aman
+            <!-- BANNER IKLAN 2 - COUNTDOWN -->
+            <div class="ads-wrapper">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
             </div>
         </div>
         
@@ -267,8 +341,20 @@
                 Selanjutnya
             </button>
             
-            <div class="badge">
-                <i class="fas fa-info-circle"></i> Dukung creator dengan klik sponsor
+            <!-- BANNER IKLAN 3 - SMARTLINK -->
+            <div class="ads-wrapper">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
             </div>
         </div>
         
@@ -291,6 +377,27 @@
             </button>
             
             <div class="url-destination" id="destinationUrlDisplay"></div>
+            
+            <!-- BANNER IKLAN 4 - REDIRECT -->
+            <div class="ads-wrapper">
+                <div class="ads-banner">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SOCIAL BAR IKLAN - Tampil di semua screen -->
+        <div class="ads-social" id="socialBar">
+            <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
         </div>
     </div>
     
