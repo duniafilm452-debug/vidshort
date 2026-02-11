@@ -362,6 +362,7 @@ function showPage(pageName) {
 }
 
 function generateRandomId() {
+    // Versi 1: Menggunakan timestamp dan random string
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let randomPart = '';
     for (let i = 0; i < 8; i++) {
@@ -369,6 +370,9 @@ function generateRandomId() {
     }
     const timestamp = Date.now().toString(36);
     return randomPart + timestamp;
+    
+    // Atau gunakan versi alternatif:
+    // return 'vid_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 }
 
 function formatDate(dateString, withTime = false) {
@@ -658,6 +662,19 @@ function setupEventListeners() {
     }
     
     console.log('✅ Event listeners setup complete');
+}
+
+// ======================
+// FUNGSI GENERATE ID ALTERNATIF
+// ======================
+// Fungsi alternatif untuk generate ID (tidak digunakan, hanya sebagai referensi)
+function generateSimpleId() {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    for (let i = 0; i < 12; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
 }
 
 // ======================
