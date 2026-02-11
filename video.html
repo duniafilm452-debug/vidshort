@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akses Video</title>
+    <title>Akses Video Premium</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,8 +24,8 @@
     <!-- COUNTDOWN SECTION -->
     <div class="countdown-section" id="countdownSection">
         <div class="countdown-header">
-            <h1>Mohon tunggu...</h1>
-            <p>Video sedang dipersiapkan</p>
+            <h1>⏳ Mohon tunggu...</h1>
+            <p>Video sedang dipersiapkan untuk Anda</p>
         </div>
 
         <div class="countdown-display">
@@ -36,61 +36,162 @@
         <div class="countdown-progress">
             <div class="progress-bar" id="progressBar"></div>
         </div>
+        
+        <div class="countdown-footer">
+            <p><i class="fas fa-shield-alt"></i> Verifikasi keamanan sebelum mengakses video</p>
+        </div>
     </div>
 
-    <!-- INSTRUCTION -->
+    <!-- INSTRUCTION SECTION -->
     <div class="instruction-section" id="instructionSection">
-        <h2>Silakan scroll ke bawah</h2>
-        <p>Geser halaman untuk melanjutkan</p>
+        <div class="arrow-animation">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+        <h2><i class="fas fa-hand-pointer"></i> Scroll ke Bawah</h2>
+        <p>Geser layar ke bawah untuk melanjutkan proses verifikasi</p>
+        <div class="hint">
+            <i class="fas fa-lightbulb"></i>
+            Scroll perlahan untuk pengalaman terbaik
+        </div>
     </div>
 
-    <!-- SPONSOR SECTION -->
+    <!-- SPONSOR SECTION (NEXT) -->
     <div class="next-section" id="nextSection">
-        <h3>Langkah 1: Kunjungi Sponsor</h3>
-        <p>Klik tombol di bawah untuk melanjutkan</p>
+        <div class="next-content">
+            <h3><i class="fas fa-crown"></i> Langkah 1: Dukungan Sponsor</h3>
+            <p>Klik tombol di bawah untuk mendukung creator</p>
+            
+            <div class="ad-info">
+                <div class="ad-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="ad-details">
+                    <h4>Video akan terbuka setelahnya</h4>
+                    <p>Anda akan diarahkan ke halaman sponsor (10 detik)</p>
+                </div>
+            </div>
 
-        <button class="btn-next" id="nextButton">
-            <i class="fas fa-external-link-alt"></i>
-            Kunjungi Sponsor
-        </button>
+            <button class="btn-next" id="nextButton">
+                <i class="fas fa-external-link-alt"></i>
+                Kunjungi Sponsor
+            </button>
+            
+            <div class="timer-info">
+                <i class="fas fa-clock"></i>
+                Iklan akan muncul <span>10 detik</span> setelah diklik
+            </div>
+        </div>
     </div>
 
-    <!-- AD PAGE -->
+    <!-- AD PAGE (SPONSOR) -->
     <div class="ad-page" id="adPage">
-        <div class="ad-content">
-            <h3>Halaman Sponsor</h3>
-            <p>Kembali otomatis dalam <span id="adTimer">10</span> detik</p>
-            <button id="backButton" class="btn-secondary">
+        <div class="ad-header">
+            <button class="back-button" id="backButton">
+                <i class="fas fa-arrow-left"></i>
                 Kembali
             </button>
+            <h3><i class="fas fa-ad"></i> Halaman Sponsor</h3>
+        </div>
+        
+        <div class="ad-container">
+            <div class="ad-content">
+                <div class="ad-banner">
+                    <div class="ad-icon-large">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Terima Kasih!</h3>
+                    <p>Anda akan diarahkan dalam</p>
+                    <div class="sponsor-message">
+                        <p><i class="fas fa-hourglass-half"></i> <span id="adTimer">10</span> detik</p>
+                    </div>
+                    
+                    <div class="smartlink-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-star"></i>
+                            <h4>Link Sponsor</h4>
+                            <p>Anda akan diarahkan secara otomatis</p>
+                            <button class="visit-sponsor" onclick="window.open('https://www.google.com', '_blank')">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                                Kunjungi Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ad-footer">
+                <i class="fas fa-shield"></i> Aman & Terpercaya | Dukungan Anda sangat berarti
+            </div>
         </div>
     </div>
 
-    <!-- VIDEO INFO -->
+    <!-- VIDEO INFO SECTION -->
     <div class="video-section" id="videoSection">
-        <h2 id="videoTitle">Loading...</h2>
-        <p id="videoDescription">Loading...</p>
+        <div class="video-content">
+            <div class="success-message">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2><i class="fas fa-lock-open"></i> Akses Dibuka!</h2>
+                <p>Terima kasih telah mendukung creator</p>
+            </div>
+            
+            <div class="video-info-card">
+                <div class="video-thumbnail">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="video-details">
+                    <h4 id="videoTitle">Loading...</h4>
+                    <p id="videoDescription">Memuat informasi video...</p>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> <span id="videoViews">0</span> views</span>
+                        <span><i class="fas fa-calendar"></i> <span id="videoDate">-</span></span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="video-meta">
-            <span><i class="fas fa-eye"></i> <span id="videoViews">0</span> views</span>
-            <span><i class="fas fa-calendar"></i> <span id="videoDate">-</span></span>
+            <button class="btn-watch" id="watchButton">
+                <i class="fas fa-play"></i>
+                Tonton Video Sekarang
+            </button>
+            
+            <div class="access-note">
+                <p><i class="fas fa-info-circle"></i> Video akan diputar di halaman terpisah</p>
+                <p><i class="fas fa-headset"></i> Laporan masalah? Hubungi support</p>
+            </div>
         </div>
-
-        <button class="btn-watch" id="watchButton">
-            <i class="fas fa-play"></i>
-            Tonton Video
-        </button>
     </div>
 
-    <!-- VIDEO PLAYER -->
+    <!-- VIDEO PLAYER SECTION -->
     <div class="video-player-section" id="videoPlayerSection">
-        <button id="backToVideoButton" class="btn-secondary">
-            <i class="fas fa-arrow-left"></i> Kembali
-        </button>
-
-        <video id="videoPlayer" controls playsinline width="100%">
-            Browser tidak mendukung video.
-        </video>
+        <div class="player-header">
+            <button class="back-to-video" id="backToVideoButton">
+                <i class="fas fa-arrow-left"></i>
+                Kembali
+            </button>
+            <h3><i class="fas fa-play-circle"></i> Putar Video</h3>
+        </div>
+        
+        <div class="video-player-container">
+            <div class="player-wrapper">
+                <video id="videoPlayer" controls playsinline>
+                    <source src="" type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+            </div>
+            
+            <div class="player-controls">
+                <button class="control-btn" onclick="document.getElementById('videoPlayer').play()">
+                    <i class="fas fa-play"></i> Putar
+                </button>
+                <button class="control-btn" onclick="document.getElementById('videoPlayer').pause()">
+                    <i class="fas fa-pause"></i> Jeda
+                </button>
+                <button class="control-btn" onclick="document.getElementById('videoPlayer').volume += 0.1">
+                    <i class="fas fa-volume-up"></i> Volume +
+                </button>
+            </div>
+        </div>
     </div>
 
 </div>
