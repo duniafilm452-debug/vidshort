@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ===== REDIRECT STYLES - FIXED ===== */
+        /* ===== REDIRECT STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -61,7 +61,7 @@
         .countdown-box {
             background: #0f172a;
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
             margin: 20px 0;
             border: 1px solid #334155;
         }
@@ -88,7 +88,7 @@
             height: 6px;
             background: #334155;
             border-radius: 3px;
-            margin-top: 25px;
+            margin-top: 20px;
             overflow: hidden;
         }
         
@@ -133,10 +133,6 @@
         .btn-secondary:hover {
             background: #475569;
             transform: translateY(-2px);
-        }
-        
-        .btn:active {
-            transform: scale(0.98);
         }
         
         .url-destination {
@@ -186,112 +182,109 @@
             .card {
                 padding: 30px 20px;
             }
-            
             .number {
                 font-size: 4rem;
             }
-            
             h1 {
                 font-size: 1.5rem;
             }
         }
 
-        /* ===== IKLAN STYLES - OPTIMIZED ===== */
-        .ads-wrapper {
+        /* ===== IKLAN STYLES - 5 BANNER COUNTDOWN ===== */
+        .ad-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            justify-content: center;
         }
         
-        .ads-row {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .ad-banner-320x50 {
             width: 100%;
-            margin: 15px 0;
-        }
-        
-        .ads-banner {
+            max-width: 320px;
+            height: 50px;
+            margin: 8px auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: transparent;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        
+        .ad-banner-320x50:hover {
+            transform: scale(1.02);
+        }
+        
+        .ad-social-bar {
             width: 100%;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            margin: 15px 0 5px 0;
+            background: transparent;
         }
         
-        .ads-banner iframe {
-            max-width: 100%;
-            border: none !important;
-            background: transparent !important;
-        }
-        
-        /* Video Slider Container */
-        .video-slider-container {
+        .ad-multitag {
             width: 100%;
-            margin: 20px 0;
-            padding: 10px 0;
-            border-radius: 12px;
-            background: rgba(15, 23, 42, 0.5);
+            margin: 10px 0;
+            padding: 5px 0;
+            background: transparent;
         }
         
-        .video-slider-title {
+        .ad-title {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             padding: 0 5px;
             color: #94a3b8;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        .video-slider-title i {
+        .ad-title i {
             color: #3b82f6;
         }
         
-        /* Banner 300x250 Container */
-        .banner-300-container {
+        /* Countdown Banner Grid - 5 Banner */
+        .countdown-banner-grid {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
             width: 100%;
-            margin: 15px 0;
-            min-height: 250px;
+            margin: 15px 0 10px 0;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 12px;
+            border: 1px solid #334155;
         }
         
-        /* Hilangkan border, shadow, background dari iklan */
-        iframe[src*="highperformanceformat"],
-        iframe[src*="effectivegatecpm"] {
+        .grid-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            padding: 0 5px;
+        }
+        
+        .grid-title i {
+            color: #f59e0b;
+        }
+        
+        /* Hilangkan semua border/shadow */
+        iframe {
             border: 0 !important;
             background: transparent !important;
             box-shadow: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
         }
         
-        /* Social bar tanpa background */
-        .ads-social {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background: transparent;
-            margin: 20px 0 5px 0;
-        }
-        
-        .ads-social iframe,
-        .ads-social ins,
-        .ads-social script + div {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-        
-        /* ===== TEKS PROMOSI PLATFORM ===== */
+        /* ===== TEKS PROMOSI ===== */
         .promo-section {
-            margin: 25px 0 15px 0;
-            padding: 20px 15px;
+            margin: 20px 0 10px 0;
+            padding: 15px;
             background: linear-gradient(145deg, #0f172a, #1a2536);
             border-radius: 16px;
             border-left: 4px solid #3b82f6;
@@ -299,10 +292,10 @@
         }
         
         .promo-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -314,9 +307,9 @@
         
         .promo-text {
             color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 6px;
         }
         
         .promo-highlight {
@@ -327,30 +320,19 @@
         .promo-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 8px;
+            margin-top: 10px;
         }
         
         .feature-tag {
             background: rgba(59, 130, 246, 0.1);
-            padding: 6px 14px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #94a3b8;
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-        
-        .feature-tag i {
-            color: #3b82f6;
-        }
-        
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #334155, transparent);
-            margin: 20px 0;
         }
         
         .hidden {
@@ -360,7 +342,7 @@
 </head>
 <body>
     <div class="card">
-        <!-- LOADING SCREEN -->
+        <!-- ===== LOADING SCREEN ===== -->
         <div id="loadingScreen">
             <div class="icon">
                 <i class="fas fa-spinner fa-pulse"></i>
@@ -368,18 +350,32 @@
             <h1>Memuat</h1>
             <div class="message">Menyiapkan tautan Anda...</div>
             
-            <!-- VIDEO SLIDER - IKLAN MULTITAG (TIDAK MENGGANGGU) -->
-            <div class="video-slider-container">
-                <div class="video-slider-title">
-                    <i class="fas fa-play-circle"></i> Konten Rekomendasi
+            <!-- ADSTERRA BANNER 320x50 (LOADING) -->
+            <div class="ad-banner-320x50">
+                <script>
+                    atOptions = {
+                        'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+            </div>
+            
+            <!-- HILLTOPADS MULTITAG BANNER (LOADING) -->
+            <div class="ad-multitag">
+                <div class="ad-title">
+                    <i class="fas fa-bolt"></i> Premium Offer
                 </div>
                 <script>
-                (function(wqsfi){
+                (function(dvgb){
                     var d = document,
                         s = d.createElement('script'),
                         l = d.scripts[d.scripts.length - 1];
-                    s.settings = wqsfi || {};
-                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.settings = dvgb || {};
+                    s.src = "\/\/submissivefun.com\/bFX.VXsadeGrlt0FYpWzcS\/-e\/mk9\/uKZbUql\/keP\/TkYs3\/ONT\/MTwuNUjKU_t\/Ntjocj5ZMUz\/Ab2FOuQC";
                     s.async = true;
                     s.referrerPolicy = 'no-referrer-when-downgrade';
                     l.parentNode.insertBefore(s, l);
@@ -387,64 +383,24 @@
                 </script>
             </div>
             
-            <!-- BANNER 300x250 (HANYA 1) -->
-            <div class="banner-300-container">
-                <script>
-                (function(teix){
-                    var d = document,
-                        s = d.createElement('script'),
-                        l = d.scripts[d.scripts.length - 1];
-                    s.settings = teix || {};
-                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
-                    s.async = true;
-                    s.referrerPolicy = 'no-referrer-when-downgrade';
-                    l.parentNode.insertBefore(s, l);
-                })({})
-                </script>
-            </div>
-            
-            <!-- PROMO SECTION 1 - LOADING -->
+            <!-- PROMO SECTION -->
             <div class="promo-section">
                 <div class="promo-title">
                     <i class="fas fa-bolt"></i> LinkShort.ID
                 </div>
                 <div class="promo-text">
-                    🚀 <span class="promo-highlight">Platform shortener tercepat</span> dengan keamanan SSL dan anti-malware.
-                </div>
-                <div class="promo-features">
-                    <span class="feature-tag"><i class="fas fa-chart-line"></i> 1M+ links</span>
-                    <span class="feature-tag"><i class="fas fa-users"></i> 500K users</span>
-                    <span class="feature-tag"><i class="fas fa-clock"></i> Uptime 99.9%</span>
+                    🚀 <span class="promo-highlight">Platform shortener tercepat</span> dengan SSL & anti-malware.
                 </div>
             </div>
         </div>
         
-        <!-- COUNTDOWN SCREEN -->
+        <!-- ===== COUNTDOWN SCREEN ===== -->
         <div id="countdownScreen" class="hidden">
             <div class="icon">
                 <i class="fas fa-hourglass-half"></i>
             </div>
             <h1>Verifikasi Keamanan</h1>
-            <div class="message">Harap tunggu 20 detik untuk melanjutkan</div>
-            
-            <!-- VIDEO SLIDER - JUGA DI COUNTDOWN -->
-            <div class="video-slider-container">
-                <div class="video-slider-title">
-                    <i class="fas fa-play-circle"></i> Video Populer
-                </div>
-                <script>
-                (function(wqsfi){
-                    var d = document,
-                        s = d.createElement('script'),
-                        l = d.scripts[d.scripts.length - 1];
-                    s.settings = wqsfi || {};
-                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
-                    s.async = true;
-                    s.referrerPolicy = 'no-referrer-when-downgrade';
-                    l.parentNode.insertBefore(s, l);
-                })({})
-                </script>
-            </div>
+            <div class="message">Harap tunggu 15 detik</div>
             
             <!-- COUNTDOWN BOX -->
             <div class="countdown-box">
@@ -455,15 +411,100 @@
                 </div>
             </div>
             
-            <!-- BANNER 300x250 DI BAWAH COUNTDOWN -->
-            <div class="banner-300-container">
+            <!-- ===== 5 IKLAN BANNER ADSTERRA 320x50 DI COUNTDOWN ===== -->
+            <div class="countdown-banner-grid">
+                <div class="grid-title">
+                    <i class="fas fa-ad"></i> Sponsored Links
+                </div>
+                
+                <!-- ADSTERRA BANNER #1 - 320x50 -->
+                <div class="ad-banner-320x50">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                
+                <!-- ADSTERRA BANNER #2 - 320x50 -->
+                <div class="ad-banner-320x50">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                
+                <!-- ADSTERRA BANNER #3 - 320x50 -->
+                <div class="ad-banner-320x50">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                
+                <!-- ADSTERRA BANNER #4 - 320x50 -->
+                <div class="ad-banner-320x50">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+                
+                <!-- ADSTERRA BANNER #5 - 320x50 -->
+                <div class="ad-banner-320x50">
+                    <script>
+                        atOptions = {
+                            'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+                </div>
+            </div>
+            
+            <!-- ADSTERRA SOCIAL BAR (COUNTDOWN) -->
+            <div class="ad-social-bar">
+                <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
+            </div>
+            
+            <!-- HILLTOPADS MULTITAG VAST (COUNTDOWN) -->
+            <div class="ad-multitag">
+                <div class="ad-title">
+                    <i class="fas fa-play-circle"></i> Video Sponsor
+                </div>
                 <script>
-                (function(teix){
+                (function(zegnpy){
                     var d = document,
                         s = d.createElement('script'),
                         l = d.scripts[d.scripts.length - 1];
-                    s.settings = teix || {};
-                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
+                    s.settings = zegnpy || {};
+                    s.src = "\/\/submissivefun.com\/bAXQVpsnd.G\/l\/0wYzWocZ\/Ne\/m\/9\/utZMULllkXPITYY\/3EOsT-Mxw\/N-DTEJtBNUjlcp5VMkzgAP0\/N\/Qs";
                     s.async = true;
                     s.referrerPolicy = 'no-referrer-when-downgrade';
                     l.parentNode.insertBefore(s, l);
@@ -471,50 +512,52 @@
                 </script>
             </div>
             
-            <!-- PROMO SECTION 2 - COUNTDOWN -->
+            <!-- PROMO SECTION -->
             <div class="promo-section">
                 <div class="promo-title">
                     <i class="fas fa-shield-alt"></i> Kenapa VidShort?
                 </div>
-                <div class="promo-text">
-                    ✅ <span class="promo-highlight">Anti-banned & anti-flag</span> — link Anda aman dari kebijakan ketat.
-                </div>
-                <div class="promo-text">
-                    ✅ <span class="promo-highlight">Mudah digunakan</span> — Tidak banyak iklan.
-                </div>
-                <div class="promo-text">
-                    ✅ <span class="promo-highlight">Cepat</span> — Langsung menuju tautan tujuan.
-                </div>
+                <div class="promo-text">✅ Anti-banned & anti-flag</div>
+                <div class="promo-text">✅ Cepat & aman</div>
             </div>
-            
-            <div class="divider"></div>
         </div>
         
-        <!-- SMARTLINK SCREEN -->
+        <!-- ===== SMARTLINK SCREEN ===== -->
         <div id="smartlinkScreen" class="hidden">
             <div class="icon">
                 <i class="fas fa-hand-pointer"></i>
             </div>
             <h1>Selanjutnya</h1>
-            <div class="message">Klik tombol di bawah untuk melanjutkan</div>
+            <div class="message">Klik tombol untuk melanjutkan</div>
             
             <button class="btn btn-primary" id="smartlinkBtn">
                 <i class="fas fa-external-link-alt"></i>
                 Selanjutnya
             </button>
             
-            <!-- VIDEO SLIDER DI SMARTLINK -->
-            <div class="video-slider-container">
-                <div class="video-slider-title">
-                    <i class="fas fa-play-circle"></i> Nonton Juga
-                </div>
+            <!-- ADSTERRA BANNER 320x50 (SMARTLINK) -->
+            <div class="ad-banner-320x50">
                 <script>
-                (function(wqsfi){
+                    atOptions = {
+                        'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+            </div>
+            
+            <!-- HILLTOPADS MULTITAG BANNER (SMARTLINK) -->
+            <div class="ad-multitag">
+                <script>
+                (function(dvgb){
                     var d = document,
                         s = d.createElement('script'),
                         l = d.scripts[d.scripts.length - 1];
-                    s.settings = wqsfi || {};
-                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.settings = dvgb || {};
+                    s.src = "\/\/submissivefun.com\/bFX.VXsadeGrlt0FYpWzcS\/-e\/mk9\/uKZbUql\/keP\/TkYs3\/ONT\/MTwuNUjKU_t\/Ntjocj5ZMUz\/Ab2FOuQC";
                     s.async = true;
                     s.referrerPolicy = 'no-referrer-when-downgrade';
                     l.parentNode.insertBefore(s, l);
@@ -522,44 +565,26 @@
                 </script>
             </div>
             
-            <!-- PROMO SECTION 3 - SMARTLINK -->
+            <!-- PROMO SECTION -->
             <div class="promo-section">
                 <div class="promo-title">
                     <i class="fas fa-gem"></i> Fitur Unggulan
                 </div>
                 <div class="promo-features">
-                    <span class="feature-tag"><i class="fas fa-qrcode"></i> QR Generator</span>
-                    <span class="feature-tag"><i class="fas fa-link"></i> Custom alias</span>
-                    <span class="feature-tag"><i class="fas fa-clock"></i> Expiry date</span>
-                    <span class="feature-tag"><i class="fas fa-password"></i> Password protect</span>
-                    <span class="feature-tag"><i class="fas fa-device"></i> Responsive</span>
+                    <span class="feature-tag"><i class="fas fa-qrcode"></i> QR</span>
+                    <span class="feature-tag"><i class="fas fa-link"></i> Custom</span>
+                    <span class="feature-tag"><i class="fas fa-clock"></i> Expiry</span>
                 </div>
-            </div>
-            
-            <!-- BANNER 300x250 DI SMARTLINK -->
-            <div class="banner-300-container">
-                <script>
-                (function(teix){
-                    var d = document,
-                        s = d.createElement('script'),
-                        l = d.scripts[d.scripts.length - 1];
-                    s.settings = teix || {};
-                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
-                    s.async = true;
-                    s.referrerPolicy = 'no-referrer-when-downgrade';
-                    l.parentNode.insertBefore(s, l);
-                })({})
-                </script>
             </div>
         </div>
         
-        <!-- FINAL REDIRECT -->
+        <!-- ===== FINAL REDIRECT ===== -->
         <div id="redirectScreen" class="hidden">
             <div class="icon">
                 <i class="fas fa-check-circle" style="color: #10b981;"></i>
             </div>
             <h1>Akses Dibuka</h1>
-            <div class="message">Klik tombol untuk membuka URL tujuan</div>
+            <div class="message">Klik tombol untuk membuka URL</div>
             
             <button class="btn btn-primary" id="redirectBtn">
                 <i class="fas fa-external-link-alt"></i>
@@ -568,23 +593,42 @@
             
             <button class="btn btn-secondary" id="copyDestinationBtn">
                 <i class="fas fa-copy"></i>
-                Salin Tautan
+                Salin
             </button>
             
             <div class="url-destination" id="destinationUrlDisplay"></div>
             
-            <!-- VIDEO SLIDER DI FINAL -->
-            <div class="video-slider-container">
-                <div class="video-slider-title">
-                    <i class="fas fa-play-circle"></i> Rekomendasi Untukmu
+            <!-- ADSTERRA BANNER 320x50 (FINAL) -->
+            <div class="ad-banner-320x50">
+                <script>
+                    atOptions = {
+                        'key' : 'f84498d4ccbed07cc48c68ec3bc78add',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/f84498d4ccbed07cc48c68ec3bc78add/invoke.js"></script>
+            </div>
+            
+            <!-- ADSTERRA SOCIAL BAR (FINAL) -->
+            <div class="ad-social-bar">
+                <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
+            </div>
+            
+            <!-- HILLTOPADS MULTITAG VAST (FINAL) -->
+            <div class="ad-multitag">
+                <div class="ad-title">
+                    <i class="fas fa-play-circle"></i> Rekomendasi
                 </div>
                 <script>
-                (function(wqsfi){
+                (function(zegnpy){
                     var d = document,
                         s = d.createElement('script'),
                         l = d.scripts[d.scripts.length - 1];
-                    s.settings = wqsfi || {};
-                    s.src = "\/\/submissivefun.com\/brX.VgsudAGPlJ0\/YeWLcm\/ke\/ma9AuNZoUklVk\/PVTGYW3\/O\/TwMnwaNxD-E\/tuNjjuci5FMJztA\/0yNhQU";
+                    s.settings = zegnpy || {};
+                    s.src = "\/\/submissivefun.com\/bAXQVpsnd.G\/l\/0wYzWocZ\/Ne\/m\/9\/utZMULllkXPITYY\/3EOsT-Mxw\/N-DTEJtBNUjlcp5VMkzgAP0\/N\/Qs";
                     s.async = true;
                     s.referrerPolicy = 'no-referrer-when-downgrade';
                     l.parentNode.insertBefore(s, l);
@@ -592,44 +636,20 @@
                 </script>
             </div>
             
-            <!-- PROMO SECTION 4 - FINAL -->
+            <!-- PROMO SECTION -->
             <div class="promo-section">
                 <div class="promo-title">
                     <i class="fas fa-rocket"></i> Dukung Kami
                 </div>
                 <div class="promo-text">
-                    <span class="promo-highlight">VidShort</span> — platform shortener gratis dan terpercaya.
+                    🌟 Bagikan linkmu dapat bonus 20%!
                 </div>
-                <div class="promo-text">
-                    🌟 Bagikan linkmu dan dapatkan bonus referral 20%!
-                </div>
-            </div>
-            
-            <!-- BANNER 300x250 DI FINAL -->
-            <div class="banner-300-container">
-                <script>
-                (function(teix){
-                    var d = document,
-                        s = d.createElement('script'),
-                        l = d.scripts[d.scripts.length - 1];
-                    s.settings = teix || {};
-                    s.src = "\/\/submissivefun.com\/bvX.V\/sDdGGSl-0bYvWPcY\/eeFm\/9NutZuUxlDkcPhT\/YU3AOyTwMswFNEjAUStON_jSc\/5hMIz\/Az2uOAQw";
-                    s.async = true;
-                    s.referrerPolicy = 'no-referrer-when-downgrade';
-                    l.parentNode.insertBefore(s, l);
-                })({})
-                </script>
             </div>
         </div>
         
-        <!-- SOCIAL BAR IKLAN (HANYA 1, DI BAWAH) -->
-        <div class="ads-social" id="socialBar">
-            <script src="https://pl28696075.effectivegatecpm.com/61/2a/d8/612ad807cb40cae43f60a32c160cb868.js"></script>
-        </div>
-        
-        <!-- FOOTER PROMO -->
-        <div style="margin-top: 25px; font-size: 0.75rem; color: #64748b; border-top: 1px solid #334155; padding-top: 15px;">
-            <i class="fas fa-crown"></i> VidShort © 2026 - Shortener Cepat, Aman & mudah digunakan
+        <!-- FOOTER -->
+        <div style="margin-top: 20px; font-size: 0.7rem; color: #64748b; border-top: 1px solid #334155; padding-top: 12px;">
+            <i class="fas fa-crown"></i> VidShort © 2026 - Shortener Cepat & Aman
         </div>
     </div>
     
